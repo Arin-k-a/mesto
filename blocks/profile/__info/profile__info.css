@@ -1,0 +1,20 @@
+.profile__info {
+    max-width: 336px;
+    display: grid;
+    grid-template-areas: 
+    "name edit-button"
+    "subscribe .";
+    column-gap: 18px;
+    row-gap: 16px;
+    align-items: center;
+    margin: 22px 0 0 30px;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__info {
+        column-gap: 10px;
+        row-gap: 14px;
+        max-width: 282px;
+        margin: 22.25px 0 0;
+    }
+}
