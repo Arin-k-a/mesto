@@ -1,5 +1,5 @@
-.profile__subscribe {
-    grid-area: subscribe;
+.profile__description {
+    grid-area: description;
     max-width: 336px;
     font-weight: 400;
     font-size: 18px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .profile__subscribe {
+    .profile__description {
         font-size: 14px;
         line-height: 17px;
         text-align: center;

@@ -1,0 +1,13 @@
+.element__button {
+    background-image: url(../../../images/like.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 19px;
+    font-size: 0;
+    width: 22px;
+    height: 19px;
+    border: none;
+    background-color: #FFF;
+    cursor: pointer;
+    padding: 0;
+    margin: 30px 30px 0 0;
+}

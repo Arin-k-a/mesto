@@ -3,7 +3,7 @@
     display: grid;
     grid-template-areas: 
     "name edit-button"
-    "subscribe .";
+    "description .";
     column-gap: 18px;
     row-gap: 16px;
     align-items: center;
