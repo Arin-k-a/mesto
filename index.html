@@ -20,55 +20,65 @@
                 <button type="button" class="profile__edit-button"></button>
                 <p class="profile__description">Исследователь океана</p>
             </div>
-            <button class="profile__add-button"></button>
+            <button type="button" class="profile__add-button"></button>
         </section>
         <ul class="elements">
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/karachaevsk.jpg">
                 <div class="element__description">
                     <p class="element__name">Карачаевск</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/elbrus.png">
                 <div class="element__description">
                     <p class="element__name">Гора Эльбрус</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/dombay.png">
                 <div class="element__description">
                     <p class="element__name">Домбай</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/elbrus.png">
                 <div class="element__description">
                     <p class="element__name">Гора Эльбрус</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/dombay.png">
                 <div class="element__description">
                     <p class="element__name">Домбай</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
             <li class="element">
                 <img class="element__image" alt="Изображение" src="./images/karachaevsk.jpg">
                 <div class="element__description">
                     <p class="element__name">Карачаево-Черкессия</p>
-                    <button class="element__button">Нравится</button>
+                    <button type="button" class="element__button">Нравится</button>
                 </div>
             </li>
         </ul>
         <footer class="footer">
             <p class="footer__text" lang="en">&#64; 2020 Mesto Russia</p>
         </footer>
+        <div class="popup">
+            <button type="button" class="popup__button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" name="form" method="post" action="#">
+                <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя">
+                <input class="popup__input popup__input_profession" name="job" required type="text"
+                    placeholder="Профессия">
+                <button class="popup__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
