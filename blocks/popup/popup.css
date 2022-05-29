@@ -1,0 +1,8 @@
+.popup {
+    visibility: hidden;
+    position: fixed;
+    top: 195px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
