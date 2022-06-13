@@ -23,50 +23,7 @@
             <button type="button" class="profile__add-button"></button>
         </section>
         <section class="grid-elements">
-            <ul class="elements">
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/karachaevsk.jpg">
-                    <div class="element__description">
-                        <h2 class="element__name">Карачаевск</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/elbrus.png">
-                    <div class="element__description">
-                        <h2 class="element__name">Гора Эльбрус</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/dombay.png">
-                    <div class="element__description">
-                        <h2 class="element__name">Домбай</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/elbrus.png">
-                    <div class="element__description">
-                        <h2 class="element__name">Гора Эльбрус</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/dombay.png">
-                    <div class="element__description">
-                        <h2 class="element__name">Домбай</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" alt="Изображение" src="./images/karachaevsk.jpg">
-                    <div class="element__description">
-                        <h2 class="element__name">Карачаево-Черкессия</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </li>
-            </ul>
+            <ul class="elements"></ul>
         </section>
     </main>
     <footer class="footer">
@@ -75,27 +32,36 @@
     <div class="popup popup_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <button type="button" class="popup__button"></button>
+            <button type="button" class="popup__button popup__button_edit"></button>
             <form class="popup__form" name="form" method="post" action="#">
                 <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя">
                 <input class="popup__input popup__input_profession" name="job" required type="text"
                     placeholder="Профессия">
-                <button class="popup__submit popup__submit_edit" type="submit">Сохранить</button>
+                <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
-    <div class="popup popup_place">
+    <div class="popup popup_card">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
-            <button type="button" class="popup__button"></button>
+            <button type="button" class="popup__button popup__button_card"></button>
             <form class="popup__form" name="form" method="post" action="#">
                 <input class="popup__input popup__input_place" name="place" required type="text" placeholder="Название">
                 <input class="popup__input popup__input_link" name="link" required type="text"
                     placeholder="Ссылка на картинку">
-                <button class="popup__submit popup__submit_place" type="submit">Создать</button>
+                <button class="popup__submit" type="submit">Создать</button>
             </form>
         </div>
     </div>
+    <template class="element-template">
+        <li class="element">
+            <img class="element__image" alt="Изображение">
+            <div class="element__description">
+                <h2 class="element__name"></h2>
+                <button type="button" class="element__button"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 
