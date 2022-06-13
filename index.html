@@ -72,7 +72,7 @@
     <footer class="footer">
         <p class="footer__text" lang="en">&#64; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <button type="button" class="popup__button"></button>
@@ -80,7 +80,19 @@
                 <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя">
                 <input class="popup__input popup__input_profession" name="job" required type="text"
                     placeholder="Профессия">
-                <button class="popup__submit" type="submit">Сохранить</button>
+                <button class="popup__submit popup__submit_edit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_place">
+        <div class="popup__container">
+            <h2 class="popup__title">Новое место</h2>
+            <button type="button" class="popup__button"></button>
+            <form class="popup__form" name="form" method="post" action="#">
+                <input class="popup__input popup__input_place" name="place" required type="text" placeholder="Название">
+                <input class="popup__input popup__input_link" name="link" required type="text"
+                    placeholder="Ссылка на картинку">
+                <button class="popup__submit popup__submit_place" type="submit">Создать</button>
             </form>
         </div>
     </div>
