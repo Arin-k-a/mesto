@@ -1,0 +1,6 @@
+.popup__box {
+    position: relative;
+    margin: auto;
+    z-index: 2;
+    padding: 0;
+}

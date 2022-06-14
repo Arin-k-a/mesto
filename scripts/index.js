@@ -1,6 +1,7 @@
 const popupEdit = document.querySelector('.popup_edit');
-const popup = document.querySelector('.popup');
+const popupImage = document.querySelector('.popup_image');
 const popupCard = document.querySelector('.popup_card');
+const popupCloseButtonImage = document.querySelector('.popup__button_image');
 const popupCloseButtonEdit = document.querySelector('.popup__button_edit');
 const popupCloseButtonCard = document.querySelector('.popup__button_card');
 const buttonSaveEdit = document.querySelector('.popup__submit_edit');
@@ -11,7 +12,9 @@ const cardContainer = document.querySelector('.grid-elements');
 const cardTemplate = document.querySelector('.element-template').content;
 const cardElement = cardTemplate.querySelector('.element');
 const grid = document.querySelector('.elements');
-
+const popupPic = document.querySelector('.popup__image');
+const popupText = document.querySelector('.popup__text');
+const elementImage = grid.querySelectorAll('.element__image');
 const initialCards = [
   {
     name: 'Архыз',
@@ -84,6 +87,11 @@ function standartCard(element) {
 
   card.querySelector('.element__delete').addEventListener('click', deleteCard);
 
+  
+  card.querySelector('.element__image').addEventListener('click', function(evt) {
+    openImage(evt);
+  })
+
   return card;
 }
 
@@ -105,6 +113,24 @@ function formSubmitHandlerEdit (evt) {
   closePopupEdit();
 };
 
+function OpenedPopupImage() {
+  popupImage.classList.add('popup_opened');
+}
+
+function closePopupImage() {
+  popupImage.classList.remove('popup_opened');
+}
+
+function openImage(evt) {
+  const image = evt.target;
+  const parentCard = image.closest('.element');
+  const description = parentCard.querySelector('.element__name');
+
+  popupPic.src =image.src;
+  popupText.textContent = description.textContent;
+  
+  OpenedPopupImage();
+  }
 // вызов функций
 
 initialCards.forEach(function(element) {
@@ -123,3 +149,5 @@ popupCloseButtonEdit.addEventListener('click', closePopupEdit);
 popupCloseButtonCard.addEventListener('click', closePopupCard);
 
 buttonSaveEdit.addEventListener('click', formSubmitHandlerEdit);
+
+popupCloseButtonImage.addEventListener('click', closePopupImage);
