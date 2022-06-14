@@ -3,10 +3,15 @@ const popup = document.querySelector('.popup');
 const popupCard = document.querySelector('.popup_card');
 const popupCloseButtonEdit = document.querySelector('.popup__button_edit');
 const popupCloseButtonCard = document.querySelector('.popup__button_card');
-const buttonSave = document.querySelector('.popup__submit');
+const buttonSaveEdit = document.querySelector('.popup__submit_edit');
+const buttonSaveCard = document.querySelector('.popup__submit_card');
 const buttonOpenEdit = document.querySelector('.profile__edit-button');
 const buttonOpenAdd = document.querySelector('.profile__add-button');
 const cardContainer = document.querySelector('.grid-elements');
+const cardTemplate = document.querySelector('.element-template').content;
+const cardElement = cardTemplate.querySelector('.element');
+const grid = document.querySelector('.elements');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -41,9 +46,11 @@ let jobProfile = document.querySelector('.profile__description');
 let formElement = document.querySelector('.popup__form');
 let placeInput = document.querySelector('.popup__input_place');
 let linkInput = document.querySelector('.popup__input_link');
-let placeCard = document.querySelector('.element__name');
-let linkCard = document.querySelector('.element__image');
 
+// функции
+
+
+// close popup
 function closePopupEdit() {
     popupEdit.classList.remove('popup_opened');
 }
@@ -51,6 +58,8 @@ function closePopupEdit() {
 function closePopupCard() {
   popupCard.classList.remove('popup_opened');
 }
+
+// open popup
 
 function openPopupEdit() {
     popupEdit.classList.add('popup_opened');
@@ -62,28 +71,46 @@ function openPopupCard() {
   popupCard.classList.add('popup_opened');
 }
 
+function standartCard(element) {
+
+  const card = cardElement.cloneNode(true);
+
+  card.querySelector('.element__name').textContent = element.name;
+  card.querySelector('.element__image').src = element.link;
+  
+  card.querySelector('.element__button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('element__button_liked');
+})
+  return card;
+}
+
+function addCard (evt) {
+  evt.preventDefault();
+  let newInfo = {
+    name: placeInput.value,
+    link: linkInput.value,
+    };
+  
+  const newCard = standartCard(newInfo);
+  grid.prepend(newCard);
+  closePopupCard();
+}
+
 function formSubmitHandlerEdit (evt) {
-    evt.preventDefault();
-    nameProfile.textContent = nameInput.value; 
-    jobProfile.textContent = jobInput.value; 
-    closePopupEdit();
+  evt.preventDefault();
+  nameProfile.textContent = nameInput.value; 
+  jobProfile.textContent = jobInput.value; 
+  closePopupEdit();
 };
 
-function addCard(evt) {
-  evt.preventDefault();
+// вызов функций
 
-  const cardTemplate = document.querySelector('.element-template').content;
-  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+initialCards.forEach(function(element) {
+  const gridElement = standartCard(element);
+  grid.prepend(gridElement);
+});
 
-  placeCard.textContent = placeInput.value;
-  linkCard.src = linkInput.value;
-  
-  cardContainer.prepend(cardElement);
-
-  closePopupCard();
-
-  return cardElement;
-}
+buttonSaveCard.addEventListener('click', addCard);
 
 buttonOpenEdit.addEventListener('click', openPopupEdit);
 
@@ -93,6 +120,5 @@ popupCloseButtonEdit.addEventListener('click', closePopupEdit);
 
 popupCloseButtonCard.addEventListener('click', closePopupCard);
 
-buttonSave.addEventListener('click', formSubmitHandlerEdit);
+buttonSaveEdit.addEventListener('click', formSubmitHandlerEdit);
 
-buttonSave.addEventListener('click', addCard);
