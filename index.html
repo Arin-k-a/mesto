@@ -25,6 +25,16 @@
         <section class="grid-elements">
             <ul class="elements"></ul>
         </section>
+        <template class="element-template">
+            <li class="element">
+                <button class="element__delete" type="button"></button>
+                <img class="element__image" alt="Изображение">
+                <div class="element__description">
+                    <h2 class="element__name"></h2>
+                    <button type="button" class="element__button"></button>
+                </div>
+            </li>
+        </template>
     </main>
     <footer class="footer">
         <p class="footer__text" lang="en">&#64; 2020 Mesto Russia</p>
@@ -53,15 +63,6 @@
             </form>
         </div>
     </div>
-    <template class="element-template">
-        <li class="element">
-            <img class="element__image" alt="Изображение">
-            <div class="element__description">
-                <h2 class="element__name"></h2>
-                <button type="button" class="element__button"></button>
-            </div>
-        </li>
-    </template>
     <script src="./scripts/index.js"></script>
 </body>
 

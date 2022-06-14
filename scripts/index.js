@@ -49,8 +49,6 @@ let linkInput = document.querySelector('.popup__input_link');
 
 // функции
 
-
-// close popup
 function closePopupEdit() {
     popupEdit.classList.remove('popup_opened');
 }
@@ -59,12 +57,14 @@ function closePopupCard() {
   popupCard.classList.remove('popup_opened');
 }
 
-// open popup
-
 function openPopupEdit() {
     popupEdit.classList.add('popup_opened');
     jobInput.value = jobProfile.textContent;
     nameInput.value = nameProfile.textContent;
+}
+
+function deleteCard(evt) {
+  evt.target.parentElement.remove();
 }
 
 function openPopupCard() {
@@ -81,6 +81,9 @@ function standartCard(element) {
   card.querySelector('.element__button').addEventListener('click', function(evt) {
     evt.target.classList.toggle('element__button_liked');
 })
+
+  card.querySelector('.element__delete').addEventListener('click', deleteCard);
+
   return card;
 }
 
@@ -90,7 +93,6 @@ function addCard (evt) {
     name: placeInput.value,
     link: linkInput.value,
     };
-  
   const newCard = standartCard(newInfo);
   grid.prepend(newCard);
   closePopupCard();
@@ -121,4 +123,3 @@ popupCloseButtonEdit.addEventListener('click', closePopupEdit);
 popupCloseButtonCard.addEventListener('click', closePopupCard);
 
 buttonSaveEdit.addEventListener('click', formSubmitHandlerEdit);
-
