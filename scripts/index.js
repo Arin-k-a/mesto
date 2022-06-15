@@ -131,6 +131,7 @@ function openImage(evt) {
   
   OpenedPopupImage();
   }
+  
 // вызов функций
 
 initialCards.forEach(function(element) {
