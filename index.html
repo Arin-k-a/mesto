@@ -42,30 +42,30 @@
     <div class="popup popup_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <button type="button" class="popup__button popup__button_edit"></button>
-            <form class="popup__form" name="form" method="post" action="#">
+            <button type="button" class="popup__button"></button>
+            <form class="popup__form popup__form_edit" name="form" method="post" action="#">
                 <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя">
                 <input class="popup__input popup__input_profession" name="job" required type="text"
                     placeholder="Профессия">
-                <button class="popup__submit popup__submit_edit" type="submit">Сохранить</button>
+                <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
     <div class="popup popup_card">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
-            <button type="button" class="popup__button popup__button_card"></button>
-            <form class="popup__form" name="form" method="post" action="#">
+            <button type="button" class="popup__button"></button>
+            <form class="popup__form popup__form_card" name="form" method="post" action="#">
                 <input class="popup__input popup__input_place" name="place" required type="text" placeholder="Название">
                 <input class="popup__input popup__input_link" name="link" required type="url"
                     placeholder="Ссылка на картинку">
-                <button class="popup__submit popup__submit_card" type="submit">Создать</button>
+                <button class="popup__submit" type="submit">Создать</button>
             </form>
         </div>
     </div>
     <div class="popup popup_image">
         <div class="popup__box">
-            <button type="button" class="popup__button popup__button_image"></button>
+            <button type="button" class="popup__button"></button>
             <img class="popup__image" alt="Изображение">
             <h2 class="popup__text"></h2>
         </div>

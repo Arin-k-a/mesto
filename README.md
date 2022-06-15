@@ -7,13 +7,3 @@
 Проект был сделан в качестве практики в процессе обучения на платформе Яндекс.Практикум.
 
 Написано на языках: CSS, HTML, JS.
-
-    max-width: 816px;
-    max-height: 540px;
-
-    @media screen and (max-width: 817px) {
-    .popup__image {
-        max-width: 240px;
-        max-height: 299px;
-    }
-}
