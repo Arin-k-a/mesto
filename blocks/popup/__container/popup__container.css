@@ -3,7 +3,6 @@
     border-radius: 10px;
     position: relative;
     max-width: 430px;
-    height: 330px;
     justify-content: space-between;
     z-index: 2;
     margin: auto;
@@ -15,6 +14,5 @@
 @media screen and (max-width: 767px) {
     .popup__container {
         max-width: 282px;
-        height: 322px;
     }
 }

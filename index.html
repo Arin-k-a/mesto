@@ -43,10 +43,13 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <button type="button" class="popup__button"></button>
-            <form class="popup__form popup__form_edit" name="form" method="post" action="#">
-                <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя">
+            <form class="popup__form popup__form_edit" name="form" method="post" action="#" novalidate>
+                <input class="popup__input popup__input_name" name="user" required type="text" placeholder="Имя"
+                    maxlength="40" minlength="2">
+                <span class="popup__error"></span>
                 <input class="popup__input popup__input_profession" name="job" required type="text"
-                    placeholder="Профессия">
+                    placeholder="Профессия" maxlength="200" minlength="2">
+                <span class="popup__error"></span>
                 <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
@@ -55,10 +58,13 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <button type="button" class="popup__button"></button>
-            <form class="popup__form popup__form_card" name="form" method="post" action="#">
-                <input class="popup__input popup__input_place" name="place" required type="text" placeholder="Название">
+            <form class="popup__form popup__form_card" name="form" method="post" action="#" novalidate>
+                <input class="popup__input popup__input_place" name="place" required type="text" placeholder="Название"
+                    required maxlength="30" minlength="2">
+                <span class="popup__error"></span>
                 <input class="popup__input popup__input_link" name="link" required type="url"
-                    placeholder="Ссылка на картинку">
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__error"></span>
                 <button class="popup__submit" type="submit">Создать</button>
             </form>
         </div>
@@ -71,6 +77,7 @@
         </div>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src = "./scripts/validate.js"></script>
 </body>
 
 </html>

@@ -46,6 +46,16 @@ const initialCards = [
   }
 ]; 
 
+const popupList = Array.from(document.querySelectorAll('.popup'));
+const forValidate = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_type-error',
+  inputErrorClass: 'popup__input_type-error',
+  errorClass: 'popup__error_active'
+}; 
+
 // функции
 
 function closePopup(popup) {
@@ -123,7 +133,15 @@ function openImage(evt) {
   
   openPopup(popupImage);
   }
-  
+
+  function closePopupEsc (evt) {
+    if (evt.key === 'Escape') {
+      popupList.forEach( function (popup) {
+        closePopup (popup);
+      })
+    };
+  };
+
 // вызов функций
 
 popupCloseButton.forEach(function(button) {
@@ -133,10 +151,20 @@ popupCloseButton.forEach(function(button) {
   })
 })
 
+popupList.forEach( function (popup) {
+  popup.addEventListener('click', function (evt) {
+  if (evt.target === evt.currentTarget) {
+      closePopup (popup);
+    }
+  });
+});
+
 initialCards.forEach(function(element) {
   const gridElement = createCard(element);
   grid.prepend(gridElement);
 });
+
+document.addEventListener('keydown', closePopupEsc);
 
 buttonOpenEdit.addEventListener('click', openPopupEdit);
 
