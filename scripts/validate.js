@@ -5,14 +5,14 @@ const hasInvalidInput = (inputList) => {
 };
 
 const showInputError = function (formElement, inputElement, errorMessage, forValidate) {
-    const errorElement = formElement.querySelector('.popup__error');
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(forValidate.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(forValidate.errorClass);
 };
 
 const hideInputError = (formElement, inputElement) => {
-    const errorElement = formElement.querySelector('.popup__error');
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(forValidate.inputErrorClass);
     errorElement.classList.remove(forValidate.errorClass);
     errorElement.textContent = '';
