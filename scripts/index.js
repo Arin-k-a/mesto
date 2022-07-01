@@ -4,13 +4,14 @@ const popupCard = document.querySelector('.popup_card');
 const popupCloseButton = document.querySelectorAll('.popup__button');
 const buttonOpenEdit = document.querySelector('.profile__edit-button');
 const buttonOpenAdd = document.querySelector('.profile__add-button');
+const buttonCardSubmit = popupCard.querySelector('.popup__submit');
 const cardContainer = document.querySelector('.grid-elements');
 const cardTemplate = document.querySelector('.element-template').content;
 const cardElement = cardTemplate.querySelector('.element');
-const grid = document.querySelector('.elements');
+const cardList = document.querySelector('.elements');
 const popupPic = document.querySelector('.popup__image');
 const popupText = document.querySelector('.popup__text');
-const elementImage = grid.querySelectorAll('.element__image');
+const elementImage = cardList.querySelectorAll('.element__image');
 const jobInput = document.querySelector('.popup__input_profession');
 const nameInput = document.querySelector('.popup__input_name');
 const nameProfile = document.querySelector('.profile__name');
@@ -62,6 +63,13 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
+function closePopupEsc (evt) {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup (popupOpened);
+  };
+};
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
@@ -70,6 +78,8 @@ function openPopupCard() {
   openPopup(popupCard);
   placeInput.value = "";
   linkInput.value = "";
+  buttonCardSubmit.setAttribute('disabled', 'disabled');
+  buttonCardSubmit.classList.add(forValidate.inactiveButtonClass);
 }
 
 function openPopupEdit() {
@@ -106,12 +116,12 @@ function createCard(element) {
 
 function addCard (evt) {
   evt.preventDefault();
-  let newInfo = {
+  const newInfo = {
     name: placeInput.value,
     link: linkInput.value,
     };
   const newCard = createCard(newInfo);
-  grid.prepend(newCard);
+  cardList.prepend(newCard);
   closePopup(popupCard);
 }
 
@@ -134,14 +144,6 @@ function openImage(evt) {
   openPopup(popupImage);
   }
 
-  function closePopupEsc (evt) {
-    if (evt.key === 'Escape') {
-      popupList.forEach( function (popup) {
-        closePopup (popup);
-      })
-    };
-  };
-
 // вызов функций
 
 popupCloseButton.forEach(function(button) {
@@ -161,7 +163,7 @@ popupList.forEach( function (popup) {
 
 initialCards.forEach(function(element) {
   const gridElement = createCard(element);
-  grid.prepend(gridElement);
+  cardList.prepend(gridElement);
 });
 
 document.addEventListener('keydown', closePopupEsc);
