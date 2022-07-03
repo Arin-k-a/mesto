@@ -61,6 +61,7 @@ const forValidate = {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupEsc);
 }
 
 function closePopupEsc (evt) {
@@ -72,6 +73,7 @@ function closePopupEsc (evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
 
 function openPopupCard() {
@@ -165,8 +167,6 @@ initialCards.forEach(function(element) {
   const gridElement = createCard(element);
   cardList.prepend(gridElement);
 });
-
-document.addEventListener('keydown', closePopupEsc);
 
 buttonOpenEdit.addEventListener('click', openPopupEdit);
 
