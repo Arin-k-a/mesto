@@ -40,7 +40,7 @@ export class Card {
       _setEventListeners() {
         this._element
         .querySelector('.element__button')
-        .addEventListener('click', () => {
+        .addEventListener('click', function() {
             this._handleLikeCard();
         });
 

@@ -1,4 +1,4 @@
-
+import { Card } from './card.js';
 
 const popupEdit = document.querySelector('.popup_edit');
 const popupImage = document.querySelector('.popup_image');
@@ -148,7 +148,23 @@ function openImage(evt) {
   openPopup(popupImage);
   }
 
+  function renderCard(item) {
+    const card = new Card(item, cardTemplate, forValidate);
+    const cardElement = card.createCard();
+    return cardElement;
+  }
+
+  function renderCards() {
+    initialCards.forEach((item) => {
+        const cardItem = renderCard(item);
+        cardList.append(cardItem);
+    })
+  }
+  
+
 // вызов функций
+
+renderCards;
 
 popupCloseButton.forEach(function(button) {
   button.addEventListener('click', function(evt) {
@@ -163,11 +179,6 @@ popupList.forEach( function (popup) {
       closePopup (popup);
     }
   });
-});
-
-initialCards.forEach(function(element) {
-  const gridElement = createCard(element);
-  cardList.prepend(gridElement);
 });
 
 buttonOpenEdit.addEventListener('click', openPopupEdit);
