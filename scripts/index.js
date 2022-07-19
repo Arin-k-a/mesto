@@ -1,3 +1,5 @@
+
+
 const popupEdit = document.querySelector('.popup_edit');
 const popupImage = document.querySelector('.popup_image');
 const popupCard = document.querySelector('.popup_card');
@@ -71,7 +73,7 @@ function closePopupEsc (evt) {
   };
 };
 
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
