@@ -2,19 +2,13 @@ import { Card } from './card.js';
 import { FormValidator } from './FormValidator.js';
 
 const popupEdit = document.querySelector('.popup_edit');
-const popupImage = document.querySelector('.popup_image');
 const popupCard = document.querySelector('.popup_card');
 const popupCloseButton = document.querySelectorAll('.popup__button');
 const buttonOpenEdit = document.querySelector('.profile__edit-button');
 const buttonOpenAdd = document.querySelector('.profile__add-button');
 const buttonCardSubmit = popupCard.querySelector('.popup__submit');
-const cardContainer = document.querySelector('.grid-elements');
-const cardTemplate = document.querySelector('.element-template').content;
-const cardElement = cardTemplate.querySelector('.element');
+const template = document.querySelector('.element-template');
 const cardList = document.querySelector('.elements');
-const popupPic = document.querySelector('.popup__image');
-const popupText = document.querySelector('.popup__text');
-const elementImage = cardList.querySelectorAll('.element__image');
 const jobInput = document.querySelector('.popup__input_profession');
 const nameInput = document.querySelector('.popup__input_name');
 const nameProfile = document.querySelector('.profile__name');
@@ -98,12 +92,12 @@ function openPopupEdit() {
 };
 
 function createCard (element) {
-  const card = new Card(element, cardElement);
+  const card = new Card(element);
   return card.createCard();
 };
 
 function addElement(element) {
-  const elementCard = createCard(element);
+  const elementCard = createCard(element, template);
   cardList.prepend(elementCard);
 };
 

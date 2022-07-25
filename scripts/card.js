@@ -1,67 +1,66 @@
 import { openPopup } from './index.js';
 
 export class Card {
-    constructor(item, cardSelector) {
-        this._cardSelector = cardSelector;
-        this._name = item.name;
-        this._link = item.link;
-        this._isLiked = false;
-    }
+  constructor(item) {
+    this._name = item.name;
+    this._link = item.link;
+    this._isLiked = false;
+  }
 
-    _getTemplate() {
-        const cardElement = document
-          .querySelector(this._cardSelector)
-          .content
-          .querySelector('.element')
-          .cloneNode(true);
-    
-        return cardElement;
-      }
-    
-      _handleOpenPopup() {
-        this._popupImage = document.querySelector('.popup_image');
-        this._popupImage.querySelector('.popup__image').src = this._link;
-        this._popupImage.querySelector('.popup__image').alt = this._name;
-        this._popupImage.querySelector('.popup__text').textContent = this._name;
+  _getTemplate() {
+    const cardElement = document
+      .querySelector('.element-template')
+      .content
+      .querySelector('.element')
+      .cloneNode(true);
 
-        openPopup(this._popupImage);
-      }
+    return cardElement;
+  }
 
-      _handleDeleteCard() {
-        this._element.remove();
-        this._element = null;
-      }
+  createCard() {
+    this._element = this._getTemplate();
+    this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__image').alt = this._name;
+    this._element.querySelector('.element__name').textContent = this._name;
+    this._setEventListeners();
+    return this._element;
+  }
 
-      _handleLikeCard() {
-        this._likeButton.classList.toggle('element__button_liked');
-        this._isLiked = !this._isLiked;
-      }
+  _handleOpenPopup() {
+    this._popupImage = document.querySelector('.popup_image');
+    this._popupImage.querySelector('.popup__image').src = this._link;
+    this._popupImage.querySelector('.popup__image').alt = this._name;
+    this._popupImage.querySelector('.popup__text').textContent = this._name;
 
-      _setEventListeners() {
-        this._likeButton = this._element.querySelector('.element__button');
-        this._deleteButton = this._element.querySelector('.element__delete');
+    openPopup(this._popupImage);
+  }
 
-        this._likeButton.addEventListener('click', () => {
-            this._handleLikeCard();
-        });
+  _handleDeleteCard() {
+    this._element.remove();
+    this._element = null;
+  }
 
-        this._deleteButton.addEventListener('click', () => {
-            this._handleDeleteCard();
-        })
+  _handleLikeCard() {
+    this._element.querySelector('.element__button').classList.toggle('element__button_liked');
+    this._isLiked = !this._isLiked;
+  }
 
-        this.element
-        .querySelector('.element__image')
-        .addEventListener('click', () => {
-            this._handleOpenPopup(this._link, this._title);
-        })
-      }
+  _setEventListeners() {
+    this._likeButton = this._element.querySelector('.element__button');
+    this._deleteButton = this._element.querySelector('.element__delete');
 
-      createCard() {
-        this._element = this._getTemplate();
-        this._element.querySelector('.element__image').src = this._link;
-        this._element.querySelector('.element__image').alt = this._name;
-        this._element.querySelector('.element__description').textContent = this._name;
-        this._setEventListeners();
-        return this._element;
-      }
+    this._likeButton.addEventListener('click', () => {
+      this._handleLikeCard ();
+    })
+
+    this._deleteButton.addEventListener('click', () => {
+      this._handleDeleteCard ();
+    });
+
+    this._element
+      .querySelector('.element__image')
+      .addEventListener('click', () => {
+        this._handleOpenPopup(this._link, this._title);
+      })
+  }
 }

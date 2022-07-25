@@ -39,7 +39,7 @@ export class FormValidator {
         if (this._hasInvalidInput(this._inputList)) {
             this._buttonElement.setAttribute('disabled', 'disabled');}
         else {
-            this._buttonElement.removeAttribute("disabled", 'disabled');}
+            this._buttonElement.removeAttribute('disabled', 'disabled');}
     };
 
     _setEventListeners = () => {
