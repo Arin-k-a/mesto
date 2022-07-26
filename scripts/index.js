@@ -1,4 +1,4 @@
-import { Card } from './card.js';
+import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 const popupEdit = document.querySelector('.popup_edit');
@@ -6,7 +6,6 @@ const popupCard = document.querySelector('.popup_card');
 const popupCloseButton = document.querySelectorAll('.popup__button');
 const buttonOpenEdit = document.querySelector('.profile__edit-button');
 const buttonOpenAdd = document.querySelector('.profile__add-button');
-const buttonCardSubmit = popupCard.querySelector('.popup__submit');
 const template = document.querySelector('.element-template');
 const cardList = document.querySelector('.elements');
 const jobInput = document.querySelector('.popup__input_profession');
@@ -56,9 +55,9 @@ const forValidate = {
 
 // функции
 
-const EditValidator = new FormValidator(forValidate, popupFormEdit);
+const validatorEdit = new FormValidator(forValidate, popupFormEdit);
 
-const AddValidator = new FormValidator(forValidate, popupFormCard);
+const validatorAdd = new FormValidator(forValidate, popupFormCard);
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
@@ -81,8 +80,7 @@ function openPopupCard() {
   openPopup(popupCard);
   placeInput.value = "";
   linkInput.value = "";
-  buttonCardSubmit.setAttribute('disabled', 'disabled');
-  buttonCardSubmit.classList.add(forValidate.inactiveButtonClass);
+  validatorAdd.setDisabledButton();
 }
 
 function openPopupEdit() {
@@ -92,7 +90,7 @@ function openPopupEdit() {
 };
 
 function createCard (element) {
-  const card = new Card(element);
+  const card = new Card(element, template);
   return card.createCard();
 };
 
@@ -120,9 +118,9 @@ function formSubmitHandlerEdit (evt) {
 
 // вызов функций
 
-EditValidator.enableValidation();
+validatorEdit.enableValidation();
 
-AddValidator.enableValidation();
+validatorAdd.enableValidation();
 
 initialCards.forEach(addElement);
 

@@ -1,26 +1,26 @@
 import { openPopup } from './index.js';
 
 export class Card {
-  constructor(item) {
+  constructor(item, cardSelector) {
+    this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
-    this._isLiked = false;
   }
 
   _getTemplate() {
-    const cardElement = document
-      .querySelector('.element-template')
-      .content
-      .querySelector('.element')
-      .cloneNode(true);
+    const cardElement = this._cardSelector
+    .content
+    .querySelector('.element')
+    .cloneNode(true);
 
     return cardElement;
   }
 
   createCard() {
     this._element = this._getTemplate();
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__image').alt = this._name;
+    this._image = this._element.querySelector('.element__image');
+    this._image.src = this._link;
+    this._image.alt = this._name;
     this._element.querySelector('.element__name').textContent = this._name;
     this._setEventListeners();
     return this._element;
@@ -41,8 +41,7 @@ export class Card {
   }
 
   _handleLikeCard() {
-    this._element.querySelector('.element__button').classList.toggle('element__button_liked');
-    this._isLiked = !this._isLiked;
+    this._likeButton.classList.toggle('element__button_liked');
   }
 
   _setEventListeners() {
@@ -57,9 +56,7 @@ export class Card {
       this._handleDeleteCard ();
     });
 
-    this._element
-      .querySelector('.element__image')
-      .addEventListener('click', () => {
+    this._image.addEventListener('click', () => {
         this._handleOpenPopup(this._link, this._title);
       })
   }
