@@ -90,12 +90,12 @@ function openPopupEdit() {
 };
 
 function createCard (element) {
-  const card = new Card(element, template);
+  const card = new Card(element, '.element-template');
   return card.createCard();
 };
 
 function addElement(element) {
-  const elementCard = createCard(element, template);
+  const elementCard = createCard(element, '.element-template');
   cardList.prepend(elementCard);
 };
 
